@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180326082319) do
   enable_extension "plpgsql"
 
   create_table "apartments", force: :cascade do |t|
-    t.string "type"
+    t.string "room_type"
     t.string "description"
     t.bigint "resort_id"
     t.datetime "created_at", null: false

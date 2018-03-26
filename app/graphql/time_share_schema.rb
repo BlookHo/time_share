@@ -1,4 +1,4 @@
-TimeShareSchema = GraphQL::Schema.define do
+TimeshareSchema = GraphQL::Schema.define do
   mutation(Types::MutationType)
   query(Types::QueryType)
 end
