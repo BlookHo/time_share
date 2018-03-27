@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Apartment.delete_all
 Resort.delete_all
 Resort.reset_pk_sequence
 Resort.create([
@@ -15,7 +15,6 @@ Resort.create([
 
 ])
 
-Apartment.delete_all
 Apartment.reset_pk_sequence
 Apartment.create([
 
