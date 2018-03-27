@@ -27,11 +27,17 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+#
 gem 'graphql'
+gem 'graphiql-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Лучше отображает ошибки
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # https://github.com/codecov/example-ruby
   # gem 'codecov', :require => false, :group => :test
