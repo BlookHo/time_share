@@ -8,8 +8,11 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :all_resorts do
     type types[ResortType] # types declaration for collection
     description 'All Resorts everywhere'
-    argument :size, types.Int, default_value: 15, prepare: -> (size) { [size, 10].min }
-    resolve -> (obj, args, ctx) {
+    argument :size,
+             types.Int,
+             default_value: 15,
+             prepare: ->(size) { [size, 10].min }
+    resolve ->(obj, args, ctx) {
       Resort.all.limit(args[:size]).order(id: :asc)
     }
   end
@@ -18,8 +21,11 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :all_apartments do
     type types[ApartmentType]
     description 'All Apartment everywhere'
-    argument :size, types.Int, default_value: 15, prepare: -> (size) { [size, 10].min }
-    resolve -> (obj, args, ctx) {
+    argument :size,
+             types.Int,
+             default_value: 15,
+             prepare: ->(size) { [size, 10].min }
+    resolve ->(obj, args, ctx) {
       Apartment.all.limit(args[:size]).order(id: :asc)
     }
   end
@@ -46,9 +52,9 @@ Types::QueryType = GraphQL::ObjectType.define do
 
   # TODO: remove me
   field :testField, types.String do
-    description "An example field added by the generator"
-    resolve -> (obj, args, ctx) {
-      "Hello World!"
+    description 'An example field added by the generator'
+    resolve ->(obj, args, ctx) {
+      'Hello World!'
     }
   end
 end
