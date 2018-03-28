@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   # resources :graphql, only: :create
 
   # Mount graphiql
-  # if Rails.env.development?
-  #   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
-  # end
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
 
 end

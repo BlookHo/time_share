@@ -5,20 +5,22 @@ Types::QueryType = GraphQL::ObjectType.define do
   # Entry points for queries on TimeshareSchema.
 
   # All resorts
-  field :resorts do
+  field :all_resorts do
     type types[ResortType] # types declaration for collection
     description 'All Resorts everywhere'
+    argument :size, types.Int, default_value: 15, prepare: -> (size) { [size, 10].min }
     resolve -> (obj, args, ctx) {
-      Resort.all
+      Resort.all.limit(args[:size]).order(id: :asc)
     }
   end
 
   # All apartments
-  field :apartments do
+  field :all_apartments do
     type types[ApartmentType]
     description 'All Apartment everywhere'
+    argument :size, types.Int, default_value: 15, prepare: -> (size) { [size, 10].min }
     resolve -> (obj, args, ctx) {
-      Apartment.all
+      Apartment.all.limit(args[:size]).order(id: :asc)
     }
   end
 

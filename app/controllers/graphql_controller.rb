@@ -1,10 +1,12 @@
 class GraphqlController < ApplicationController
   require 'time_share_schema.rb'
 
+  # description of schema.execute method:
+  # .rvm/gems/ruby-2.5.0/gems/graphql-1.7.13/lib/graphql/schema.rb
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
-    operation_name = params[:operationName]
+    # operation_name = params[:operationName]
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
@@ -12,18 +14,6 @@ class GraphqlController < ApplicationController
     result = TimeshareSchema.execute(query, variables: variables, context: context)#, operation_name: operation_name)
     render json: result
   end
-
-  # def create
-  #   render json: TimeshareSchema.execute(
-  #     params[:query],
-  #     variables: params[:variables] || {},
-  #     )
-  # end
-
-  # def query
-  #   result = TimeshareSchema.execute params[:query]
-  #   render json: result
-  # end
 
   private
 
