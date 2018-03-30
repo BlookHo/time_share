@@ -5,7 +5,7 @@ class GraphqlController < ApplicationController
   # .rvm/gems/ruby-2.5.0/gems/graphql-1.7.13/lib/graphql/schema.rb
   def execute
     result = TimeshareSchema.execute(
-      query,
+      query_string,
       variables: variables,
       context: context,
       operation_name: operation_name
@@ -15,7 +15,7 @@ class GraphqlController < ApplicationController
 
   private
 
-  def query
+  def query_string
     params[:query]
   end
 

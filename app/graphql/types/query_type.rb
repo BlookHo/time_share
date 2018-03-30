@@ -33,7 +33,7 @@ Types::QueryType = GraphQL::ObjectType.define do
     type ResortType
     argument :id, !types.ID
     description 'One Resort by its ID'
-    resolve -> (obj, args, ctx) {
+    resolve ->(obj, args, ctx) {
       Resort.find(args[:id])
     }
   end
@@ -43,7 +43,7 @@ Types::QueryType = GraphQL::ObjectType.define do
     type ApartmentType
     argument :id, !types.ID
     description 'One Apartment by its ID'
-    resolve -> (obj, args, ctx) {
+    resolve ->(obj, args, ctx) {
       Apartment.find(args[:id])
     }
   end
@@ -53,7 +53,7 @@ Types::QueryType = GraphQL::ObjectType.define do
     type types[ApartmentType]
     argument :room_type, !types.String
     description 'One Apartment by :room_type'
-    resolve -> (obj, args, ctx) {
+    resolve ->(obj, args, ctx) {
       Apartment.by_room_type(args[:room_type])
     }
   end
@@ -65,5 +65,12 @@ Types::QueryType = GraphQL::ObjectType.define do
       'Hello World!'
     }
   end
+
+  # fragment apartmentFields on ApartmentType {
+  #   # field :id, types.ID
+  #   field :room_type, types.String
+  #   field :description, types.String
+  #   field :resort_id, types.ID
+  # }
 end
 
