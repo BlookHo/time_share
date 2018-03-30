@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # for REST API:
-  # resources :resorts, :only => [:index, :show]
+  resources :resorts, :only => [:index, :show]
 
   post '/graphql', to: 'graphql#execute'
   get '/graphql', to: 'graphql#execute'
