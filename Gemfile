@@ -31,11 +31,8 @@ gem 'puma', '~> 3.7'
 gem 'graphiql-rails'
 gem 'graphql'
 
-gem 'faker', '~> 1.6.0'
-
-gem 'pry'
-
 group :test do
+  gem 'faker', '~> 1.6.0'
   # https://github.com/codecov/example-ruby
   # gem 'codecov', :require => false, :group => :test
 
@@ -47,6 +44,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
+  gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'colorize'
   gem 'pry-byebug'
