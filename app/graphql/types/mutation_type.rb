@@ -22,12 +22,12 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :room_type, !types.String
     argument :description, !types.String
     resolve ->(obj, args, ctx) {
-      new_resort = Apartment.create(
+      new_apartment = Apartment.create(
         resort_id: args[:resort_id],
         room_type: args[:room_type],
         description: args[:description]
       )
-      new_resort
+      new_apartment
     }
   end
 

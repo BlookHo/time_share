@@ -13,24 +13,24 @@
 ActiveRecord::Schema.define(version: 20180326082319) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'apartments', force: :cascade do |t|
-    t.string 'room_type'
-    t.string 'description'
-    t.bigint 'resort_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['resort_id'], name: 'index_apartments_on_resort_id'
+  create_table "apartments", force: :cascade do |t|
+    t.string "room_type"
+    t.string "description"
+    t.bigint "resort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resort_id"], name: "index_apartments_on_resort_id"
   end
 
-  create_table 'resorts', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.string 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "resorts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key 'apartments', 'resorts'
+  add_foreign_key "apartments", "resorts"
 end
