@@ -100,7 +100,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (3.11.3)
+    puma (3.12.2)
     rack (2.0.4)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
@@ -181,7 +181,7 @@ DEPENDENCIES
   pry-byebug
   pry-rescue
   pry-stack_explorer
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.5)
   rubocop (~> 0.54.0)
   spring
