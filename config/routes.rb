@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
   # for REST API:
-  resources :resorts, :only => [:index, :show]
+  scope module: 'api' do
+    namespace :v1 do
+      resources :apartments
+      resources :resorts do
+        resources :apartments
+      end
+    end
+  end
 
+  match "*path", to: "application#catch_404", via: :all
+
+
+
+  # for GraphQL API:
   post '/graphql', to: 'graphql#execute'
   get '/graphql', to: 'graphql#execute'
 

@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+#### API REST version
+
+* http://localhost:3000/v1/apartments
+* http://localhost:3000/v1/resorts
+
+* http://localhost:3000/v1/resorts/:id
+* http://localhost:3000/v1/resorts/:id/apartments

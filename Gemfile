@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby "2.3.8"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
@@ -53,6 +55,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "brakeman"
+
   # Errors fix and debug
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -62,12 +66,18 @@ group :development do
 
   gem 'listen', '>= 3.0.5', '< 3.2'
 
-  gem 'rubocop', '~> 0.54.0', require: false
+  # Automatic Ruby code checking tool
+  gem 'rubocop', '~> 0.71.0', require: false #~> 0.54.0
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+
+  gem "pronto", "~> 0.10.0"
+  gem "pronto-rubocop", require: false
 
   # Spring speeds up development by keeping your application
   # running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  #gem 'spring'
+  #gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 gem 'tzinfo'
