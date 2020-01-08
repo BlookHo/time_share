@@ -13,6 +13,16 @@ gem 'rails', '~> 5.1.5'
 gem 'activerecord-reset-pk-sequence'
 gem 'pg', '>= 0.18', '< 2.0'
 
+# Performance Checks
+# https://dev.to/_mculp/investigating-the-performance-of-a-problematic-rails-api-endpoint-3a65
+# https://github.com/MiniProfiler/rack-mini-profiler
+gem 'rack-mini-profiler'
+# For memory profiling
+gem 'memory_profiler'
+# For call-stack profiling flamegraphs
+gem 'flamegraph'
+gem 'stackprof'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -60,6 +70,9 @@ group :development do
   # Errors fix and debug
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # identify and correct N+1 queries
+  gem 'bullet'
 
   # gem 'guard'
   # gem 'guard-shell'

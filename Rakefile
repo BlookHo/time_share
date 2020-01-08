@@ -3,5 +3,6 @@
 # and they will automatically be available to Rake.
 
 require_relative 'config/application'
+require 'rails_api_benchmark/benchmark_tasks'
 
 Rails.application.load_tasks
