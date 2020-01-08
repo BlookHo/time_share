@@ -4,6 +4,7 @@ class GraphqlController < ApplicationController
   # description of schema.execute method:
   # .rvm/gems/ruby-2.5.0/gems/graphql-1.7.13/lib/graphql/schema.rb
   def execute
+    p "In execute"
     result = TimeshareSchema.execute(
       query_string,
       variables: variables,

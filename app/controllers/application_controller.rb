@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
+
   rescue_from ActiveRecord::RecordNotFound do
     render json: { error: 'No such record in Database; check params',
                    status: :not_found,

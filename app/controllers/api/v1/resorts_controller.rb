@@ -1,8 +1,19 @@
 class Api::V1::ResortsController < ApplicationController
+  require 'benchmark'
+
   before_action :set_resort, only: [:show, :update, :mark_deleted]
+  before_action do
+    Rack::MiniProfiler.authorize_request
+  end
 
   def index
     @resorts = Resort.all
+
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { { resorts: @resorts, except: [:id, :created_at, :updated_at] } }
+    #end
+    #Benchmark.ms { @resorts }
     render json: { resorts: @resorts }, except: [:id, :created_at, :updated_at]
   end
 
